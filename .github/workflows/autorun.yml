@@ -106,6 +106,7 @@ jobs:
   Major:
     runs-on: ubuntu-latest
     continue-on-error: true
+    if: false
     timeout-minutes: 150
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
