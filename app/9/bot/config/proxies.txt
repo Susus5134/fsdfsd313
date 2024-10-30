@@ -1,1 +1,5 @@
-socks5://warp:good.360.cn@127.0.0.1:40000
+type://user:pass@ip:port
+type://user:pass:ip:port
+type://ip:port:user:pass
+type://ip:port@user:pass
+type://ip:port

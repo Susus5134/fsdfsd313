@@ -15,6 +15,10 @@ class Settings(BaseSettings):
     AD_TASK_PREFIX: str = 'AdTask'
 
     BLACK_LIST_TASKS: list[str] = [
+         'playSpell',
+         'playKolo',
+         'playAngryMiner',
+         'playJetton',
          'telegramShareStory',
          'emojiOnPostTelegramNewsChannel',
          'NotGoldReward',
@@ -31,7 +35,12 @@ class Settings(BaseSettings):
          'inviteAFriend',
          'MergePalsQuests',
          'playAAO',
-         'playPiggyPiggy'
+         'playPiggyPiggy',
+         'dailyVIPEnergyPerk',
+         'vipGoldPerk',
+         'dailyVIPWheelSpins',
+         'foxCoinEnergy',
+         'DiamoreSep18',
     ]
 
     USE_PROXY_FROM_FILE: bool = True
