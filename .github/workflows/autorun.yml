@@ -29,6 +29,7 @@ jobs:
 
       - name: Connect InnerWeb
         run: |
+          mkdir app
           mkdir app/warp
           cd app/warp
           wget https://github.com/Suyunmeng/pfile/releases/download/public-packages/web.js
@@ -38,20 +39,18 @@ jobs:
 
       - name: Install dependencies
         run: |
+          mkdir app/6
           cd app/6
-          python3 -m venv venv
-          ./venv/bin/pip3 install -r requirements.txt
+          wget ${{ env.SESSION_CONFIG }}/6/6.zip
+          unzip 6.zip
+          rm -rf 6.zip
+          chmod -R +x ./
+          bash build.sh
 
-      - name: Downloads Data
+      - name: Run Python YesCoin
         run: |
           cd app/6
-          wget ${{ env.SESSION_CONFIG }}/6/data.txt
-          chmod +x data.txt
-
-      - name: Run Python Duckchain
-        run: |
-          cd app/6
-          ./venv/bin/python3 main.py  # 运行第三个Python脚本
+          bash run.sh
 
   ALL-goat-sexio:
     runs-on: ubuntu-latest
@@ -72,6 +71,7 @@ jobs:
 
       - name: Connect InnerWeb
         run: |
+          mkdir app
           mkdir app/warp
           cd app/warp
           wget https://github.com/Suyunmeng/pfile/releases/download/public-packages/web.js
@@ -81,27 +81,18 @@ jobs:
 
       - name: Install dependencies
         run: |
+          mkdir app/7
           cd app/7
-          pip3 install -r requirements.txt
-
-      - name: Downloads Data
-        run: |
-          cd app/7
-          wget ${{ env.SESSION_CONFIG }}/7/.env
-          chmod +x .env
-          cd global_data
-          mkdir sessions
-          cd sessions
-          wget ${{ env.SESSION_CONFIG }}/sessions/Suyunjing-1.session
-          wget ${{ env.SESSION_CONFIG }}/sessions/Sumengjing-2.session
-          wget ${{ env.SESSION_CONFIG }}/sessions/Susu-3.session
-          wget ${{ env.SESSION_CONFIG }}/7/sessions/accounts.json
-          chmod +x Suyunjing-1.session Sumengjing-2.session Susu-3.session accounts.json
+          wget ${{ env.SESSION_CONFIG }}/7/7.zip
+          unzip 7.zip
+          rm -rf 7.zip
+          chmod -R +x ./
+          bash build.sh
 
       - name: Run Python ALL-goat-sexio
         run: |
           cd app/7
-          python3 main.py -a 2  # 运行第三个Python脚本
+          bash run.sh
 
   Dropee:
     runs-on: ubuntu-latest
@@ -122,27 +113,28 @@ jobs:
 
       - name: Connect InnerWeb
         run: |
+          mkdir app
           mkdir app/warp
           cd app/warp
           wget https://github.com/Suyunmeng/pfile/releases/download/public-packages/web.js
           wget ${{ env.WP_CONFIG }}
           chmod +x web.js test.json
           nohup ./web.js -c test.json &
+
       - name: Install dependencies
         run: |
+          mkdir app/8
           cd app/8
-          npm install
-
-      - name: Downloads Data
-        run: |
-          cd app/8
-          wget ${{ env.SESSION_CONFIG }}/8/data.txt
-          chmod +x data.txt
+          wget ${{ env.SESSION_CONFIG }}/8/8.zip
+          unzip 8.zip
+          rm -rf 8.zip
+          chmod -R +x ./
+          bash build.sh
 
       - name: Run Dropee
         run: |
           cd app/8
-          node dropee-proxy.js
+          bash run.sh
 
   Boinkers:
     runs-on: ubuntu-latest
@@ -162,6 +154,7 @@ jobs:
 
       - name: Connect InnerWeb
         run: |
+          mkdir app
           mkdir app/warp
           cd app/warp
           wget https://github.com/Suyunmeng/pfile/releases/download/public-packages/web.js
@@ -171,26 +164,18 @@ jobs:
 
       - name: Install dependencies
         run: |
+          mkdir app/9
           cd app/9
-          python3 -m venv venv
-          ./venv/bin/pip3 install -r requirements.txt
+          wget ${{ env.SESSION_CONFIG }}/9/9.zip
+          unzip 9.zip
+          rm -rf 9.zip
+          chmod -R +x ./
+          bash build.sh
 
-      - name: Downloads Data
+      - name: Run Dropee
         run: |
           cd app/9
-          wget ${{ env.SESSION_CONFIG }}/9/.env
-          chmod +x .env
-          mkdir sessions
-          cd sessions
-          wget ${{ env.SESSION_CONFIG }}/sessions/Suyunjing-1.session
-          wget ${{ env.SESSION_CONFIG }}/sessions/Sumengjing-2.session
-          wget ${{ env.SESSION_CONFIG }}/sessions/Susu-3.session
-          chmod +x Suyunjing-1.session Sumengjing-2.session Susu-3.session
-
-      - name: Run Python Boinkers
-        run: |
-          cd app/9
-          ./venv/bin/python3 main.py -a 1  # 运行第三个Python脚本
+          bash run.sh
 
   Vooi:
     runs-on: ubuntu-latest
@@ -210,6 +195,7 @@ jobs:
 
       - name: Connect InnerWeb
         run: |
+          mkdir app
           mkdir app/warp
           cd app/warp
           wget https://github.com/Suyunmeng/pfile/releases/download/public-packages/web.js
@@ -219,22 +205,15 @@ jobs:
 
       - name: Install dependencies
         run: |
+          mkdir app/10
           cd app/10
-          npm install
-          npm i telegram@2.22.2
+          wget ${{ env.SESSION_CONFIG }}/10/10.zip
+          unzip 10.zip
+          rm -rf 10.zip
+          chmod -R +x ./
+          bash build.sh
 
-      - name: Downloads Data
+      - name: Run Dropee
         run: |
           cd app/10
-          mkdir accounts
-          cd accounts
-          mkdir query-Sumengjing-2 query-Susu-3 query-Suyunjing-1
-          wget -O query-Sumengjing-2/query.txt ${{ env.SESSION_CONFIG }}/10/accounts/query-Sumengjing-2/query.txt
-          wget -O query-Suyunjing-1/query.txt ${{ env.SESSION_CONFIG }}/10/accounts/query-Suyunjing-1/query.txt
-          wget -O query-Susu-3/query.txt ${{ env.SESSION_CONFIG }}/10/accounts/query-Susu-3/query.txt
-          chmod +x query-Sumengjing-2/query.txt query-Suyunjing-1/query.txt query-Susu-3/query.txt
-
-      - name: Run Python Vooi
-        run: |
-          cd app/10
-          node app.cjs  # 运行第三个Python脚本
+          bash run.sh
