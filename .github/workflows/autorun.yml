@@ -170,9 +170,7 @@ jobs:
           unzip 9.zip
           rm -rf 9.zip
           chmod -R +x ./
-          python3 -m venv venv
-          ls
-          ./venv/bin/pip3 install -r requirements.txt
+          bash build.sh
 
       - name: Run Dropee
         run: |
