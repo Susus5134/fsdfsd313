@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 150
-    if: 'true'
+    if: false
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
       SESSION_CONFIG: ${{ secrets.SESSION_CONFIG }}
@@ -47,7 +47,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Python YesCoin
+      - name: Run Duckchain
         run: |
           cd app/6
           bash run.sh
@@ -89,7 +89,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Python CatVSDogs
+      - name: Run CatVSDogs
         run: |
           cd app/7
           bash run.sh
@@ -215,7 +215,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Dropee
+      - name: Run Vooi
         run: |
           cd app/10
           bash run.sh
