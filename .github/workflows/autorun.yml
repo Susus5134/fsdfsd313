@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true 
 
 jobs:
-  Duckchain:
+  FreeDogs:
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 150
@@ -47,7 +47,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Duckchain
+      - name: Run FreeDogs
         run: |
           cd app/6
           bash run.sh
