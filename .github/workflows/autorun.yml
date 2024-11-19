@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 150
-    if: 'false'
+    if: 'true'
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
       SESSION_CONFIG: ${{ secrets.SESSION_CONFIG }}
@@ -52,11 +52,11 @@ jobs:
           cd app/6
           bash run.sh
 
-  TELETAP:
+  CatVSDogs:
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 150
-    if: false
+    if: true
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
       SESSION_CONFIG: ${{ secrets.SESSION_CONFIG }}
@@ -89,7 +89,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Python TELETAP
+      - name: Run Python CatVSDogs
         run: |
           cd app/7
           bash run.sh
@@ -173,7 +173,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Dropee
+      - name: Run Boinkers
         run: |
           cd app/9
           bash run.sh
