@@ -52,11 +52,11 @@ jobs:
           cd app/6
           bash run.sh
 
-  ALL-goat-sexio:
+  TELETAP:
     runs-on: ubuntu-latest
     continue-on-error: true
     timeout-minutes: 150
-    if: true
+    if: false
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
       SESSION_CONFIG: ${{ secrets.SESSION_CONFIG }}
@@ -89,7 +89,7 @@ jobs:
           chmod -R +x ./
           bash build.sh
 
-      - name: Run Python ALL-goat-sexio
+      - name: Run Python TELETAP
         run: |
           cd app/7
           bash run.sh
@@ -139,7 +139,7 @@ jobs:
   Boinkers:
     runs-on: ubuntu-latest
     continue-on-error: true
-    if: false
+    if: true
     timeout-minutes: 150
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
@@ -181,6 +181,7 @@ jobs:
   Vooi:
     runs-on: ubuntu-latest
     continue-on-error: true
+    if: true
     timeout-minutes: 150
     env:
       WP_CONFIG: ${{ secrets.WARP_CONFIG }}
